@@ -1,0 +1,218 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"gWaOlmK7v3\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Warehouse manager</span>\",\"col\":12}},{\"id\":\"cF9zwWkUuT\",\"type\":\"header\",\"data\":{\"text\":\"<span style=\\\"font-size: 18px; letter-spacing: 0.18px;\\\"><b>Inward Material - Supplier</b></span>\",\"col\":12}},{\"id\":\"Y7LYG81tj_\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending For QC\",\"col\":4}},{\"id\":\"EchkSqH39e\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending For GRN\",\"col\":4}},{\"id\":\"oN3VTL4C4r\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"GRN Completed\",\"col\":3}},{\"id\":\"KHs8LE-1M-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Transporter Master\",\"col\":3}},{\"id\":\"J-WRfVESF1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"jrNyJT5v0B\",\"type\":\"header\",\"data\":{\"text\":\"<span style=\\\"font-size: 18px; letter-spacing: 0.18px;\\\"><b>Outward Material - B2B Customer</b></span>\",\"col\":12}},{\"id\":\"xRS_aNXg5v\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"WN4oFupIAY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Packing OK - B2B\",\"col\":3}},{\"id\":\"9cwjMV_UhL\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Outward - B2B\",\"col\":3}},{\"id\":\"AYqMXkGXSv\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Upload LR - B2B\",\"col\":3}},{\"id\":\"s6cIx3S8B0\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Mark Delivery - B2B\",\"col\":3}},{\"id\":\"vrcRYydoL7\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Delivered - B2B\",\"col\":3}},{\"id\":\"LPDr99x2fU\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Invoices - B2B\",\"col\":3}},{\"id\":\"dK7bYeEpRO\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"PMx6O6YK7H\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Outward Material - B2C Customer</b></span>\",\"col\":12}},{\"id\":\"3c8KI8jupC\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"easGOXwkfH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Packing Ok - B2C\",\"col\":3}},{\"id\":\"oWjeXeY7ZF\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Outward - B2C\",\"col\":3}},{\"id\":\"c1b-5Q9_C5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Upload LR Indian Post\",\"col\":3}},{\"id\":\"5YDrllAXy6\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Upload LR - B2C (Others)\",\"col\":3}},{\"id\":\"agPwXVqlq6\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Mark Delivery - B2C\",\"col\":3}},{\"id\":\"gkcJ5dW4A4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Delivered - B2C\",\"col\":3}},{\"id\":\"wBvwd9rj4H\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Invoices - B2C\",\"col\":3}},{\"id\":\"wk1fQQN71M\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"lrdT5llK3G\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}},{\"id\":\"PVH3YOSNW6\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Entry\",\"col\":3}}]",
+ "creation": "2026-04-13 10:42:10.892083",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "assets",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Warehouse manager",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reports",
+   "link_count": 3,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Stock Report",
+   "link_count": 0,
+   "link_to": "Stock Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "MSL Report",
+   "link_count": 0,
+   "link_to": "MSN Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Reserved Stock Report",
+   "link_count": 0,
+   "link_to": "Reserved Stock",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-06-24 10:00:35.736782",
+ "modified_by": "Administrator",
+ "module": "Warrior",
+ "name": "Warehouse manager",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Warehouse Manager"
+  }
+ ],
+ "sequence_id": 39.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Upload LR Indian Post",
+   "link_to": "Sales Invoice",
+   "stats_filter": "[[\"Sales Invoice\",\"custom_dispatch_status\",\"=\",\"Print Stickers\",false],[\"Sales Invoice\",\"customer_group\",\"=\",\"Farmer\",false],[\"Sales Invoice\",\"docstatus\",\"=\",\"1\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Upload LR - B2C (Others)",
+   "link_to": "Sales Invoice",
+   "stats_filter": "[[\"Sales Invoice\",\"docstatus\",\"=\",\"1\",false],[\"Sales Invoice\",\"custom_dispatch_status\",\"=\",\"Upload LR Main\",false],[\"Sales Invoice\",\"customer_group\",\"=\",\"Farmer\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Stock Entry",
+   "link_to": "Stock Entry",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Transporter Master",
+   "link_to": "Supplier",
+   "stats_filter": "[[\"Supplier\",\"is_transporter\",\"=\",1,false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Pending For QC",
+   "link_to": "Purchase Invoice",
+   "stats_filter": "[[\"Purchase Invoice\",\"workflow_state\",\"=\",\"Draft\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "label": "Pending For GRN",
+   "link_to": "Purchase Invoice",
+   "stats_filter": "[[\"Purchase Invoice\",\"docstatus\",\"!=\",\"2\",false],[\"Purchase Invoice\",\"workflow_state\",\"=\",\"Approved By Manager\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Packing OK - B2B",
+   "link_to": "Sales Invoice",
+   "stats_filter": "[[\"Sales Invoice\",\"custom_dispatch_status\",\"=\",\"Packing OK\",false],[\"Sales Invoice\",\"customer_group\",\"=\",\"Dealer\",false],[\"Sales Invoice\",\"docstatus\",\"=\",\"1\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Packing Ok - B2C",
+   "link_to": "Sales Invoice",
+   "stats_filter": "[[\"Sales Invoice\",\"docstatus\",\"=\",\"1\",false],[\"Sales Invoice\",\"custom_dispatch_status\",\"=\",\"Packing OK\",false],[\"Sales Invoice\",\"customer_group\",\"=\",\"Farmer\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "GRN Completed",
+   "link_to": "Purchase Invoice",
+   "stats_filter": "[[\"Purchase Invoice\",\"docstatus\",\"=\",\"1\",false],[\"Purchase Invoice\",\"workflow_state\",\"=\",\"Approved\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Outward - B2B",
+   "link_to": "Sales Invoice",
+   "stats_filter": "[[\"Sales Invoice\",\"custom_dispatch_status\",\"=\",\"Outward\",false],[\"Sales Invoice\",\"customer_group\",\"=\",\"Dealer\",false],[\"Sales Invoice\",\"docstatus\",\"=\",\"1\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Outward - B2C",
+   "link_to": "Sales Invoice",
+   "stats_filter": "[[\"Sales Invoice\",\"custom_dispatch_status\",\"=\",\"Outward\",false],[\"Sales Invoice\",\"docstatus\",\"=\",\"1\",false],[\"Sales Invoice\",\"customer_group\",\"=\",\"Farmer\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Upload LR - B2B",
+   "link_to": "Sales Invoice",
+   "stats_filter": "[[\"Sales Invoice\",\"custom_dispatch_status\",\"=\",\"Upload LR Main\",false],[\"Sales Invoice\",\"docstatus\",\"=\",\"1\",false],[\"Sales Invoice\",\"customer_group\",\"=\",\"Dealer\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Mark Delivery - B2B",
+   "link_to": "Sales Invoice",
+   "stats_filter": "[[\"Sales Invoice\",\"custom_dispatch_status\",\"=\",\"Dispatched\",false],[\"Sales Invoice\",\"customer_group\",\"=\",\"Dealer\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Mark Delivery - B2C",
+   "link_to": "Sales Invoice",
+   "stats_filter": "[[\"Sales Invoice\",\"docstatus\",\"=\",\"1\",false],[\"Sales Invoice\",\"custom_dispatch_status\",\"=\",\"Dispatched\",false],[\"Sales Invoice\",\"customer_group\",\"=\",\"Farmer\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Delivered - B2B",
+   "link_to": "Sales Invoice",
+   "stats_filter": "[[\"Sales Invoice\",\"custom_dispatch_status\",\"=\",\"Delivered\",false],[\"Sales Invoice\",\"docstatus\",\"=\",\"1\",false],[\"Sales Invoice\",\"customer_group\",\"=\",\"Dealer\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Delivered - B2C",
+   "link_to": "Sales Invoice",
+   "stats_filter": "[[\"Sales Invoice\",\"custom_dispatch_status\",\"=\",\"Delivered\",false],[\"Sales Invoice\",\"docstatus\",\"=\",\"1\",false],[\"Sales Invoice\",\"customer_group\",\"=\",\"Farmer\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "All Invoices - B2B",
+   "link_to": "Sales Invoice",
+   "stats_filter": "[[\"Sales Invoice\",\"docstatus\",\"=\",\"1\",false],[\"Sales Invoice\",\"customer_group\",\"=\",\"Dealer\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "All Invoices - B2C",
+   "link_to": "Sales Invoice",
+   "stats_filter": "[[\"Sales Invoice\",\"docstatus\",\"=\",\"1\",false],[\"Sales Invoice\",\"customer_group\",\"=\",\"Farmer\",false]]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Warehouse manager"
+}

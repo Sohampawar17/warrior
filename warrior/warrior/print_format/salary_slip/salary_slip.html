@@ -1,0 +1,360 @@
+{% set company = frappe.get_doc("Company", doc.company) %}
+{% set employee = frappe.get_doc("Employee", doc.employee) if doc.employee else None %}
+{% set pay_month = frappe.utils.getdate(doc.start_date).strftime("%B %Y") if doc.start_date else "" %}
+
+{% macro value_or_dash(val) -%}
+    {{ val if val else "-" }}
+{%- endmacro %}
+
+<style>
+    :root {
+        --ink: #111;
+        --muted: #5a5f69;
+        --line: #d6d9de;
+        --soft: #f5f7fa;
+        --accent: #0b3d2e;
+        --accent-soft: #e6f0ec;
+    }
+
+    .ss-page {
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        color: var(--ink);
+        font-size: 11.5px;
+        line-height: 1.35;
+    }
+
+    .ss-container {
+        border: 1px solid var(--line);
+        padding: 14px 16px 12px;
+        background: #fff;
+    }
+
+    .ss-header {
+        display: table;
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .ss-header > div {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .ss-logo {
+        width: 22%;
+    }
+
+    .ss-logo img {
+        max-height: 90px;
+        max-width: 140px;
+    }
+
+    .ss-company {
+        text-align: center;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .ss-company h1 {
+        margin: 0;
+        font-size: 15px;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+    }
+
+    .ss-company .address {
+        color: var(--muted);
+        font-size: 12px;
+        margin-top: 2px;
+    }
+
+    .ss-title {
+        margin-top: 6px;
+        padding: 6px 8px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        text-align: center;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        border: 1px solid var(--line);
+        letter-spacing: 0.4px;
+    }
+
+    .ss-grid {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .ss-grid td {
+        vertical-align: top;
+        padding: 0;
+    }
+
+    .ss-card {
+        border: 1px solid var(--line);
+        padding: 8px 10px;
+        height: 100%;
+    }
+
+    .ss-card h3 {
+        margin: 0 0 6px;
+        font-size: 11.5px;
+        text-transform: uppercase;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        color: var(--accent);
+        letter-spacing: 0.4px;
+    }
+
+    .ss-pairs {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .ss-pairs td {
+        padding: 2px 0;
+    }
+
+    .ss-label {
+        color: var(--muted);
+        width: 45%;
+        white-space: nowrap;
+    }
+
+    .ss-value {
+        width: 55%;
+        font-weight: 600;
+    }
+
+    .ss-attendance {
+        margin-top: 10px;
+        border: 1px solid var(--line);
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .ss-attendance th,
+    .ss-attendance td {
+        border: 1px solid var(--line);
+        padding: 6px 8px;
+    }
+
+    .ss-attendance th {
+        background: var(--soft);
+        text-transform: uppercase;
+        font-size: 10.5px;
+        letter-spacing: 0.4px;
+        text-align: left;
+    }
+
+    .ss-table {
+        margin-top: 10px;
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid var(--line);
+    }
+
+    .ss-table th,
+    .ss-table td {
+        border: 1px solid var(--line);
+        padding: 6px 8px;
+        vertical-align: top;
+    }
+
+    .ss-table th {
+        background: var(--soft);
+        text-transform: uppercase;
+        font-size: 10.5px;
+        letter-spacing: 0.4px;
+        text-align: left;
+    }
+
+    .ss-right {
+        text-align: right;
+        white-space: nowrap;
+    }
+
+    .ss-total {
+        font-weight: 700;
+        background: #fffdf4;
+    }
+
+    .ss-net {
+        font-weight: 800;
+        background: var(--accent-soft);
+    }
+
+    .ss-footer {
+        margin-top: 10px;
+        border-top: 1px dashed var(--line);
+        padding-top: 8px;
+        display: table;
+        width: 100%;
+    }
+
+    .ss-footer > div {
+        display: table-cell;
+        vertical-align: top;
+    }
+
+    .ss-foot-note {
+        font-style: italic;
+        color: var(--muted);
+        font-size: 10.5px;
+        text-align: center;
+        padding-top: 8px;
+    }
+</style>
+
+<div class="ss-page">
+    <div class="ss-container">
+        <div class="ss-header">
+            <div class="ss-logo">
+                   <img src="/files/shoption logo.png" alt="Shoption Logo">
+            </div>
+            <div class="ss-company">
+                <h1>SHOPTION PRIVATE LIMITED</h1>
+                <div class="address">Office No. 10,11,12,12A, 7th Floor, A- Building, City Vista, Kharadi, Pune - 411014.</div>
+                <div class="address">Maharashtra, India.</div>
+            </div>
+        </div>
+
+        <div class="ss-title">Pay Slip for the month of {{ pay_month }}</div>
+
+        <table class="ss-grid">
+            <tr>
+                <td style="width: 50%; padding-right: 6px;">
+                    <div class="ss-card">
+                        <h3>Employee Details</h3>
+                        <table class="ss-pairs">
+                            <tr>
+                                <td class="ss-label">Employee Name</td>
+                                <td class="ss-value">{{ doc.employee_name }}</td>
+                            </tr>
+                            <tr>
+                                <td class="ss-label">Employee Code</td>
+                                <td class="ss-value">{{ doc.employee }}</td>
+                            </tr>
+                            <tr>
+                                <td class="ss-label">Function</td>
+                                <td class="ss-value">{{ doc.department or "-" }}</td>
+                            </tr>
+                            <tr>
+                                <td class="ss-label">Designation</td>
+                                <td class="ss-value">{{ doc.designation or "-" }}</td>
+                            </tr>
+                            <tr>
+                                <td class="ss-label">Bank Name</td>
+                                <td class="ss-value">{{ doc.bank_name or "-" }}</td>
+                            </tr>
+                            <tr>
+                                <td class="ss-label">Bank Account No.</td>
+                                <td class="ss-value">{{ doc.bank_account_no or "-" }}</td>
+                            </tr>
+                            <tr>
+                                <td class="ss-label">Date of Joining</td>
+                                <td class="ss-value">{{ employee.date_of_joining if employee else "-" }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+                <td style="width: 50%; padding-left: 6px;">
+                    <div class="ss-card">
+                        <h3>Tax & Statutory</h3>
+                        <table class="ss-pairs">
+                            <tr>
+                                <td class="ss-label">PAN</td>
+                                <td class="ss-value">{{ value_or_dash(employee.pan_number if employee else None) }}</td>
+                            </tr>
+                            <tr>
+                                <td class="ss-label">UAN</td>
+                                <td class="ss-value">{{ value_or_dash((employee.get("provident_fund_account") or employee.get("uan")) if employee else None) }}</td>
+                            </tr>
+                            <tr>
+                                <td class="ss-label">ESI Number</td>
+                                <td class="ss-value">{{ value_or_dash((employee.get("custom_esi_no") or employee.get("esic_number")) if employee else None) }}</td>
+                            </tr>
+                            <tr>
+                                <td class="ss-label">Aadhaar</td>
+                                <td class="ss-value">{{ value_or_dash((employee.get("custom_aaddhar_no") or employee.get("aadhaar_number")) if employee else None) }}</td>
+                            </tr>
+                            <tr>
+                                <td class="ss-label">Location</td>
+                                <td class="ss-value">{{employee.get("branch") or "-" }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <table class="ss-attendance">
+            <tr>
+                <th>Attendance Details</th>
+                <th style="width: 20%;">Value</th>
+            </tr>
+            <tr>
+                <td>Present Days</td>
+                <td class="ss-right">{{ doc.payment_days or 0 }}</td>
+            </tr>
+            <tr>
+                <td>LOP Days</td>
+                <td class="ss-right">{{ doc.leave_without_pay or 0 }}</td>
+            </tr>
+        </table>
+
+        {% set earnings = doc.earnings or [] %}
+        {% set deductions = doc.deductions or [] %}
+        {% set max_len = (earnings|length if earnings|length > deductions|length else deductions|length) %}
+
+        <table class="ss-table">
+            <tr>
+                <th>Earnings</th>
+                <th style="width: 18%;">Rate/Month</th>
+                <th style="width: 18%;">Amount</th>
+                <th>Deductions</th>
+                <th style="width: 18%;">Amount</th>
+            </tr>
+            {% for i in range(max_len) %}
+                {% set e = earnings[i] if i < earnings|length else None %}
+                {% set d = deductions[i] if i < deductions|length else None %}
+                <tr>
+                    <td>{{ e.salary_component if e else "" }}</td>
+                    <td class="ss-right">{{ frappe.utils.fmt_money(e.default_amount or e.amount, currency=company.default_currency) if e else "" }}</td>
+                    <td class="ss-right">{{ frappe.utils.fmt_money(e.amount, currency=company.default_currency) if e else "" }}</td>
+                    <td>{{ d.salary_component if d else "" }}</td>
+                    <td class="ss-right">{{ frappe.utils.fmt_money(d.amount, currency=company.default_currency) if d else "" }}</td>
+                </tr>
+            {% endfor %}
+            <tr class="ss-total">
+                <td>Total Earnings</td>
+                <td class="ss-right">{{ frappe.utils.fmt_money(doc.gross_pay, currency=company.default_currency) }}</td>
+                <td class="ss-right">{{ frappe.utils.fmt_money(doc.gross_pay, currency=company.default_currency) }}</td>
+                <td>Total Deductions</td>
+                <td class="ss-right">{{ frappe.utils.fmt_money(doc.total_deduction, currency=company.default_currency) }}</td>
+            </tr>
+            <tr class="ss-net">
+                <td colspan="4" class="ss-right">Net Amount</td>
+                <td class="ss-right">{{ frappe.utils.fmt_money(doc.net_pay, currency=company.default_currency) }}</td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+                <td>Expenses Reimbursements</td>
+                <td class="ss-right">{{ frappe.utils.fmt_money(doc.get("custom_expenses") or 0, currency=company.default_currency) }}</td>
+            </tr>
+            <tr class="ss-net">
+                <td colspan="4" class="ss-right">Net Payable</td>
+                <td class="ss-right">{{ frappe.utils.fmt_money(doc.custom_total_pay_out or 0, currency=company.default_currency) }}</td>
+            </tr>
+        </table>
+
+        <div class="ss-footer">
+            <div style="width: 70%;">
+                <strong>Amount (in words):</strong> {{ frappe.utils.money_in_words(doc.custom_total_pay_out) if doc.custom_total_pay_out else "" }}
+            </div>
+            <div style="width: 30%; text-align: right;"></div>
+        </div>
+
+        <div class="ss-foot-note">This is a computer-generated payslip hence needs no signature.</div>
+    </div>
+</div>

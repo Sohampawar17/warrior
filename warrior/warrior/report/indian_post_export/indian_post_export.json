@@ -1,0 +1,31 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2026-04-15 12:33:56.713295",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 2,
+ "is_standard": "Yes",
+ "letter_head": null,
+ "modified": "2026-06-20 12:18:56.218217",
+ "modified_by": "Administrator",
+ "module": "Warrior",
+ "name": "Indian Post Export",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Indian Post Tracking Log",
+ "report_name": "Indian Post Export",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Sales Back Office"
+  },
+  {
+   "role": "Complaint Manager"
+  }
+ ],
+ "timeout": 0
+}

@@ -1,0 +1,122 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"RYfKEoMsPM\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Complaint Manager</span>\",\"col\":12}},{\"id\":\"dC7Wzu9f35\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending For Payment\",\"col\":3}},{\"id\":\"ZPxYuq24LC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Fully Paid\",\"col\":3}},{\"id\":\"2NbJN1azJm\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Ready To Dispatch\",\"col\":3}},{\"id\":\"i8u4urRbTj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Partially Dispatched\",\"col\":3}},{\"id\":\"bOpDScOPOr\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Partially Available\",\"col\":3}},{\"id\":\"1KzmbB-GVC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Material Shortage\",\"col\":3}},{\"id\":\"-9VPXspTJR\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Partially Invoiced\",\"col\":3}},{\"id\":\"Mtmxy86kzt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Invoiced\",\"col\":3}},{\"id\":\"utuecnTBi0\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"J1KrmxJ-Du\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Raise a Complaint\",\"col\":4}},{\"id\":\"4fzZQVa3d2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Resolved Complaint\",\"col\":4}},{\"id\":\"liyzNWbXuR\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Refund Request\",\"col\":4}}]",
+ "creation": "2026-04-09 15:58:22.181818",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 1,
+ "icon": "",
+ "idx": 0,
+ "indicator_color": "",
+ "is_hidden": 0,
+ "label": "Complain Management",
+ "links": [],
+ "modified": "2026-06-02 15:55:58.181813",
+ "modified_by": "Administrator",
+ "module": "Warrior",
+ "name": "Complain Management",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Complaint Manager"
+  }
+ ],
+ "sequence_id": 39.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Pending For Payment",
+   "link_to": "Sales Order",
+   "stats_filter": "[[\"Sales Order\",\"custom_dispatch_status\",\"=\",\"PENDING PAYMENT\",false],[\"Sales Order\",\"transaction_date\",\">\",\"2026-04-08\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Resolved Complaint",
+   "link_to": "Raise a Complaint",
+   "stats_filter": "[[\"Raise a Complaint\",\"status\",\"=\",\"Ressolved\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Fully Paid",
+   "link_to": "Sales Order",
+   "stats_filter": "[[\"Sales Order\",\"custom_dispatch_status\",\"=\",\"FULLY PAID\",false],[\"Sales Order\",\"transaction_date\",\">\",\"2026-04-08\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Raise a Complaint",
+   "link_to": "Raise a Complaint",
+   "stats_filter": "[[\"Raise a Complaint\",\"status\",\"!=\",\"Ressolved\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Partially Available",
+   "link_to": "Sales Order",
+   "stats_filter": "[[\"Sales Order\",\"docstatus\",\"=\",\"1\",false],[\"Sales Order\",\"custom_dispatch_status\",\"=\",\"PARTIALLY AVAILABLE\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Refund Request",
+   "link_to": "Refund Request",
+   "stats_filter": "[[\"Refund Request\",\"workflow_state\",\"in\",[\"Draft\",\"Approved By Manager\"],false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Ready To Dispatch",
+   "link_to": "Sales Order",
+   "stats_filter": "[[\"Sales Order\",\"custom_dispatch_status\",\"=\",\"READY TO DISPATCH\",false],[\"Sales Order\",\"transaction_date\",\">\",\"2026-04-08\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Partially Dispatched",
+   "link_to": "Sales Order",
+   "stats_filter": "[[\"Sales Order\",\"custom_dispatch_status\",\"=\",\"PARTIAL DISPATCH\",false],[\"Sales Order\",\"transaction_date\",\">\",\"2026-04-08\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Material Shortage",
+   "link_to": "Sales Order",
+   "stats_filter": "[[\"Sales Order\",\"custom_dispatch_status\",\"=\",\"MATERIAL SHORTAGE\",false],[\"Sales Order\",\"transaction_date\",\">\",\"2026-04-08\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Partially Invoiced",
+   "link_to": "Sales Order",
+   "stats_filter": "[[\"Sales Order\",\"custom_dispatch_status\",\"=\",\"PARTIALLY INVOICED\",false],[\"Sales Order\",\"transaction_date\",\">\",\"2026-04-08\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Invoiced",
+   "link_to": "Sales Order",
+   "stats_filter": "[[\"Sales Order\",\"custom_dispatch_status\",\"=\",\"INVOICED\",false],[\"Sales Order\",\"transaction_date\",\">\",\"2026-04-08\",false]]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Complain Management"
+}

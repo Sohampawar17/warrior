@@ -1,0 +1,143 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-06-20 12:54:12.672372",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_cu4v",
+  "user",
+  "column_break_trhl",
+  "posting_date",
+  "naming_series",
+  "section_break_kezh",
+  "stages",
+  "section_break_xwnb",
+  "lead_reassigned_to",
+  "column_break_hsbr",
+  "lead_reassigned_stage",
+  "section_break_juwc",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_cu4v",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "User",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_trhl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "default": "LR-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "LR-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "section_break_kezh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "stages",
+   "fieldtype": "Table",
+   "label": "Current Lead Stages",
+   "options": "Lead Reassigned Stage items"
+  },
+  {
+   "fieldname": "section_break_xwnb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "lead_reassigned_to",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Lead Reassigned To User",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_hsbr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lead_reassigned_stage",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Target Lead Stage",
+   "options": "Lead Stages",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_juwc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Lead Reassignment",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Lead Reassignment",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-06-20 12:54:29.338896",
+ "modified_by": "Administrator",
+ "module": "Warrior",
+ "name": "Lead Reassignment",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

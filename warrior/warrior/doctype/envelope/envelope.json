@@ -1,0 +1,145 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-13 20:46:49.122335",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "customer_name",
+  "address_line_1",
+  "marketplace",
+  "tehsil",
+  "district",
+  "state",
+  "pincode",
+  "transporter",
+  "transporter_name",
+  "invoice_no",
+  "invoice_amount",
+  "no_of_boxes__big_font",
+  "is_cancelled",
+  "dispatch_id",
+  "packing_ok"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name"
+  },
+  {
+   "fieldname": "address_line_1",
+   "fieldtype": "Data",
+   "label": "Address line 1"
+  },
+  {
+   "fieldname": "marketplace",
+   "fieldtype": "Link",
+   "label": "Marketplace",
+   "options": "Marketplace"
+  },
+  {
+   "fieldname": "tehsil",
+   "fieldtype": "Link",
+   "label": "Tehsil",
+   "options": "Tahshil"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "Territory"
+  },
+  {
+   "fieldname": "pincode",
+   "fieldtype": "Data",
+   "label": "Pincode"
+  },
+  {
+   "fieldname": "transporter",
+   "fieldtype": "Link",
+   "label": "Transporter",
+   "link_filters": "[[\"Supplier\",\"disabled\",\"=\",0],[\"Supplier\",\"is_transporter\",\"=\",1]]",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "transporter_name",
+   "fieldtype": "Data",
+   "label": "Transporter Name"
+  },
+  {
+   "fieldname": "invoice_no",
+   "fieldtype": "Data",
+   "label": "Invoice No"
+  },
+  {
+   "fieldname": "invoice_amount",
+   "fieldtype": "Float",
+   "label": "Invoice Amount"
+  },
+  {
+   "fieldname": "no_of_boxes__big_font",
+   "fieldtype": "Int",
+   "label": "No. Of Boxes"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_cancelled",
+   "fieldtype": "Check",
+   "label": "Is Cancelled",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "dispatch_id",
+   "fieldtype": "Data",
+   "label": "dispatch_id"
+  },
+  {
+   "fieldname": "packing_ok",
+   "fieldtype": "Link",
+   "label": "Packing Ok",
+   "options": "Packing OK Slip"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-13 01:45:10.450449",
+ "modified_by": "Administrator",
+ "module": "Warrior",
+ "name": "Envelope",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,98 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"o5b2slpoxF\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Purchase Manager</span>\",\"col\":12}},{\"id\":\"aQDsHPTv3_\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Order Material Shortage\",\"col\":3}},{\"id\":\"tvxnGOkJAs\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Inventory Material Request\",\"col\":3}},{\"id\":\"BGpmtyWINF\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"YNvgHdDNLR\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Create PO\",\"col\":3}},{\"id\":\"LO04Iwfszw\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending For PI\",\"col\":3}},{\"id\":\"9B2366l2-f\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending For Seller Dispatch\",\"col\":3}},{\"id\":\"nqjRVq2c6V\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending For Inward\",\"col\":3}},{\"id\":\"FF-QuBDsoq\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Inwarded\",\"col\":3}},{\"id\":\"6t_QcHFYk_\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Order History\",\"col\":3}}]",
+ "creation": "2026-04-09 15:58:22.266307",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "assets",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Purchase Manager",
+ "links": [],
+ "modified": "2026-06-02 15:55:58.080265",
+ "modified_by": "Administrator",
+ "module": "Warrior",
+ "name": "Purchase Manager",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Purchase Manager"
+  }
+ ],
+ "sequence_id": 36.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Create PO",
+   "link_to": "Purchase Order",
+   "stats_filter": "[[\"Purchase Order\",\"docstatus\",\"!=\",\"2\",false],[\"Purchase Order\",\"workflow_state\",\"=\",\"Create PO\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "New",
+   "label": "Sales Order Material Shortage",
+   "link_to": "Material Shortage",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Purchase Order History",
+   "link_to": "Purchase Order",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "New",
+   "label": "Inventory Material Request",
+   "link_to": "Material Request",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Pending For PI",
+   "link_to": "Purchase Order",
+   "stats_filter": "[[\"Purchase Order\",\"docstatus\",\"!=\",\"2\",false],[\"Purchase Order\",\"workflow_state\",\"=\",\"Pending For PI\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "doc_view": "List",
+   "label": "Pending For Seller Dispatch",
+   "link_to": "Purchase Order",
+   "stats_filter": "[[\"Purchase Order\",\"docstatus\",\"!=\",\"2\",false],[\"Purchase Order\",\"workflow_state\",\"=\",\"Pending For Seller Dispatch\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "label": "Pending For Inward",
+   "link_to": "Purchase Order",
+   "stats_filter": "[[\"Purchase Order\",\"docstatus\",\"!=\",\"2\",false],[\"Purchase Order\",\"workflow_state\",\"=\",\"Pending For Inward\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Inwarded",
+   "link_to": "Purchase Order",
+   "stats_filter": "[[\"Purchase Order\",\"docstatus\",\"=\",\"1\",false],[\"Purchase Order\",\"workflow_state\",\"=\",\"Inwarded\",false]]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Purchase Manager"
+}

@@ -1,0 +1,105 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-06-20 19:51:55.564956",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "source",
+  "event",
+  "system_call_id",
+  "signature",
+  "payload",
+  "processed",
+  "processed_on",
+  "error_message",
+  "call_detail_entry"
+ ],
+ "fields": [
+  {
+   "fieldname": "source",
+   "fieldtype": "Data",
+   "label": "Source",
+   "read_only": 1
+  },
+  {
+   "fieldname": "event",
+   "fieldtype": "Data",
+   "label": "Event",
+   "read_only": 1
+  },
+  {
+   "fieldname": "system_call_id",
+   "fieldtype": "Data",
+   "label": "System Call ID",
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "signature",
+   "fieldtype": "Small Text",
+   "label": "Signature",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payload",
+   "fieldtype": "Long Text",
+   "label": "Payload",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "processed",
+   "fieldtype": "Check",
+   "label": "Processed",
+   "read_only": 1
+  },
+  {
+   "default": "Now",
+   "fieldname": "processed_on",
+   "fieldtype": "Datetime",
+   "label": "Processed On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "error_message",
+   "fieldtype": "Long Text",
+   "label": "Error Message",
+   "read_only": 1
+  },
+  {
+   "fieldname": "call_detail_entry",
+   "fieldtype": "Link",
+   "label": "Call Detail Entry",
+   "options": "Call Detail Entry",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-20 19:51:55.564956",
+ "modified_by": "Administrator",
+ "module": "Warrior",
+ "name": "Call Webhook Log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

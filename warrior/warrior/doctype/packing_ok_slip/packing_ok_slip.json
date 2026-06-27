@@ -1,0 +1,181 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-03-07 16:41:42.704783",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_bdql",
+  "sales_invoice",
+  "customer",
+  "customer_name",
+  "marketplace",
+  "tehsil",
+  "district",
+  "state",
+  "pincode",
+  "column_break_oocl",
+  "mobile_no",
+  "no_of_boxes",
+  "transporter",
+  "transporter_name",
+  "invoice_amount",
+  "address_line_1",
+  "section_break_hpdh",
+  "amended_from",
+  "naming_series",
+  "dispatch_id"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_bdql",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Packing OK Slip",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "sales_invoice",
+   "fieldtype": "Data",
+   "label": "Sales Invoice"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer name"
+  },
+  {
+   "fieldname": "marketplace",
+   "fieldtype": "Link",
+   "label": "Marketplace",
+   "options": "Marketplace"
+  },
+  {
+   "fieldname": "tehsil",
+   "fieldtype": "Link",
+   "label": "Tehsil",
+   "options": "Tahshil"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "Territory"
+  },
+  {
+   "fieldname": "mobile_no",
+   "fieldtype": "Data",
+   "label": "Mobile no"
+  },
+  {
+   "fieldname": "transporter",
+   "fieldtype": "Link",
+   "label": "Transporter",
+   "link_filters": "[[\"Supplier\",\"is_transporter\",\"=\",1],[\"Supplier\",\"disabled\",\"=\",0]]",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "transporter_name",
+   "fieldtype": "Data",
+   "label": "Transporter Name"
+  },
+  {
+   "fieldname": "invoice_amount",
+   "fieldtype": "Currency",
+   "label": "Invoice Amount"
+  },
+  {
+   "fieldname": "no_of_boxes",
+   "fieldtype": "Int",
+   "label": "NO of boxes"
+  },
+  {
+   "fieldname": "column_break_oocl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_hpdh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "PKO-.YYYY.-.####"
+  },
+  {
+   "fieldname": "pincode",
+   "fieldtype": "Data",
+   "label": "Pincode"
+  },
+  {
+   "fieldname": "dispatch_id",
+   "fieldtype": "Data",
+   "label": "dispatch_id"
+  },
+  {
+   "fieldname": "address_line_1",
+   "fieldtype": "Small Text",
+   "label": "Address Line 1"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "link_doctype": "Box Pasting Sticker",
+   "link_fieldname": "packing_ok"
+  },
+  {
+   "link_doctype": "Envelope",
+   "link_fieldname": "packing_ok"
+  }
+ ],
+ "modified": "2026-06-08 16:43:33.598622",
+ "modified_by": "Administrator",
+ "module": "Warrior",
+ "name": "Packing OK Slip",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

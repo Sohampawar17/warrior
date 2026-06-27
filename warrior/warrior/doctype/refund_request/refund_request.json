@@ -1,0 +1,356 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-02-23 15:37:13.828745",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_xmvt",
+  "order_doctype",
+  "order_id",
+  "grand_total",
+  "paid_amount",
+  "column_break_jttf",
+  "customer",
+  "customer_name",
+  "mobile_number",
+  "column_break_zytx",
+  "naming_series",
+  "company",
+  "created_on",
+  "amended_from",
+  "section_break_vgvt",
+  "requested_refund_amount",
+  "refund_reason",
+  "refund_mode",
+  "section_break_upmc",
+  "upi_details_column",
+  "account_name",
+  "account_no",
+  "chequebook_copy",
+  "column_break_keyk",
+  "bank_name",
+  "bank_branch",
+  "ifsc_code",
+  "section_break_kndq",
+  "bank_transaction_id",
+  "utr_number",
+  "company_bank_account",
+  "section_break_eeue",
+  "target_order",
+  "section_break_euzw",
+  "upi_id",
+  "qr_code",
+  "section_break_ndnk",
+  "approved_by",
+  "approved_by_name",
+  "journal_entry",
+  "column_break_ctav",
+  "paid_by",
+  "paid_by_name",
+  "paid_on"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_xmvt",
+   "fieldtype": "Section Break",
+   "label": "Order Details"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Refund Request",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "order_doctype",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Order Doctype",
+   "options": "DocType",
+   "read_only": 1
+  },
+  {
+   "fieldname": "order_id",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Order Id",
+   "options": "order_doctype",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number",
+   "read_only": 1
+  },
+  {
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "label": "Grand Total",
+   "read_only": 1
+  },
+  {
+   "fieldname": "paid_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Paid Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_jttf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "account_name",
+   "fieldtype": "Data",
+   "label": "Account Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "bank_name",
+   "fieldtype": "Data",
+   "label": "Bank Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "bank_branch",
+   "fieldtype": "Data",
+   "label": "Bank Branch",
+   "read_only": 1
+  },
+  {
+   "fieldname": "chequebook_copy",
+   "fieldtype": "Attach",
+   "label": "Chequebook Copy",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_vgvt",
+   "fieldtype": "Section Break",
+   "label": "Refund Details"
+  },
+  {
+   "fieldname": "requested_refund_amount",
+   "fieldtype": "Currency",
+   "label": "Requested Refund Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "refund_reason",
+   "fieldtype": "Small Text",
+   "label": "Refund Reason"
+  },
+  {
+   "fieldname": "refund_mode",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Refund Mode",
+   "options": "Bank\nUPI\nMap to another order",
+   "read_only": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fieldname": "journal_entry",
+   "fieldtype": "Link",
+   "label": "Journal Entry",
+   "no_copy": 1,
+   "options": "Journal Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_ndnk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approved_by_name",
+   "fieldtype": "Data",
+   "label": "Approved By Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ctav",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "paid_by",
+   "fieldtype": "Link",
+   "label": "Paid By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "paid_by_name",
+   "fieldtype": "Data",
+   "label": "Paid By Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_on",
+   "fieldtype": "Datetime",
+   "label": "Created ON",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_zytx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "RFD"
+  },
+  {
+   "depends_on": "eval:doc.refund_mode=='Bank'",
+   "fieldname": "section_break_upmc",
+   "fieldtype": "Section Break",
+   "label": "Bank Details"
+  },
+  {
+   "fieldname": "upi_details_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "account_no",
+   "fieldtype": "Data",
+   "label": "Account No",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_keyk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ifsc_code",
+   "fieldtype": "Data",
+   "label": "IFSC Code",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.refund_mode==\"Bank\"",
+   "fieldname": "section_break_kndq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "bank_transaction_id",
+   "fieldtype": "Data",
+   "label": "Bank Transaction Id"
+  },
+  {
+   "fieldname": "utr_number",
+   "fieldtype": "Attach",
+   "label": "Payment Proof",
+   "make_attachment_public": 1
+  },
+  {
+   "fieldname": "company_bank_account",
+   "fieldtype": "Link",
+   "label": "Company bank Account",
+   "link_filters": "[[\"Bank Account\",\"is_company_account\",\"=\",1]]",
+   "options": "Bank Account"
+  },
+  {
+   "depends_on": "eval:doc.refund_mode=='Map to another order'",
+   "fieldname": "section_break_eeue",
+   "fieldtype": "Section Break",
+   "label": "Map TO Another Order"
+  },
+  {
+   "fieldname": "target_order",
+   "fieldtype": "Link",
+   "label": "Target Order",
+   "options": "Sales Order",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.refund_mode=='UPI'",
+   "fieldname": "section_break_euzw",
+   "fieldtype": "Section Break",
+   "label": "UPI Details"
+  },
+  {
+   "fieldname": "upi_id",
+   "fieldtype": "Data",
+   "label": "UPI ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "qr_code",
+   "fieldtype": "Attach",
+   "label": "QR Code",
+   "read_only": 1
+  },
+  {
+   "fieldname": "paid_on",
+   "fieldtype": "Date",
+   "label": "Paid On",
+   "no_copy": 1,
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-04-17 19:45:52.568816",
+ "modified_by": "Administrator",
+ "module": "Warrior",
+ "name": "Refund Request",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

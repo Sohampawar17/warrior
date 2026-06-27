@@ -1,0 +1,256 @@
+<style>
+@page {
+    size: A4;
+    margin: 10mm;
+}
+.print-heading {
+    display: none !important;
+}
+
+.delivery-challan {
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    line-height: 1.4;
+    width: 100%;
+}
+
+.stock-transfer-letter-head {
+    margin-bottom: 8px;
+}
+.main-table {
+        border-collapse: collapse;
+
+    table-layout: fixed;
+    width: 100%;
+}
+
+.main-table td {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.item-name-cell {
+    font-size: 10px;
+    line-height: 1.2;
+}
+
+.amount-cell {
+    white-space: nowrap;
+    font-size: 10px;
+}
+
+.main-table th {
+    border: 1px solid #000;
+    padding: 6px;
+    vertical-align: top;
+}
+
+.title-row td {
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    padding: 12px;
+    background: #fff !important;
+}
+
+.section-row td {
+    background: #d9d9d9;
+    font-weight: 700;
+    font-size: 11px;
+}
+
+.main-table td,
+.main-table th {
+    border: 1px solid #000;
+    padding: 6px;
+    vertical-align: top;
+}
+
+
+.main-table .right {
+    white-space: nowrap;
+}
+
+.signature-cell {
+    height: 80px;
+    text-align: center;
+    vertical-align: bottom !important;
+    font-weight: bold;
+}
+
+.address-box {
+    min-height: 110px;
+}
+
+.field-label {
+    color: #000;
+    font-size: 11px;
+    font-weight: 700;
+}
+</style>
+
+{% macro address_from_address(address_name, fallback_name) %}
+    {% set address = frappe.db.get_value("Address", address_name, ["*"], as_dict=True) if address_name else None %}
+    <b>{{ address.address_title if address and address.address_title else fallback_name or "" }}</b><br>
+    {% if address %}
+        {% if address.address_line1 %}{{ address.address_line1 }}<br>{% endif %}
+        {% if address.address_line2 %}{{ address.address_line2 }}<br>{% endif %}
+        {% set marketplace = frappe.db.get_value("Marketplace", address.city, "marketplace_name") if address.city else "" %}
+        {% set tahshil = frappe.db.get_value("Tahshil", address.custom_tahshil, "tahshil") if address.custom_tahshil else "" %}
+        {% set district = frappe.db.get_value("District", address.custom_district, "district_name") if address.custom_district else "" %}
+        {{ [marketplace or address.city, tahshil, district, address.state] | reject("none") | reject("equalto", "") | join(", ") }}{% if address.pincode %} - {{ address.pincode }}{% endif %}<br>
+        {% if address.phone %}Phone: {{ address.phone }}<br>{% endif %}
+        {% if address.gstin %}GSTIN: {{ address.gstin }}<br>{% endif %}
+        {% if address.gst_state_number %}State Code: {{ address.gst_state_number }}{% endif %}
+    {% endif %}
+{% endmacro %}
+
+{% macro address_from_warehouse(warehouse_name) %}
+    {% set warehouse = frappe.db.get_value("Warehouse", warehouse_name, ["warehouse_name", "address_line_1", "address_line_2", "city", "state", "pin"], as_dict=True) if warehouse_name else None %}
+    <b>{{ warehouse.warehouse_name if warehouse and warehouse.warehouse_name else warehouse_name or "" }}</b><br>
+    {% if warehouse %}
+        {% if warehouse.address_line_1 %}{{ warehouse.address_line_1 }}<br>{% endif %}
+        {% if warehouse.address_line_2 %}{{ warehouse.address_line_2 }}<br>{% endif %}
+        {% set marketplace = frappe.db.get_value("Marketplace", warehouse.city, "marketplace_name") if warehouse.city else "" %}
+        {{ marketplace or warehouse.city or "" }}{% if warehouse.state %}, {{ warehouse.state }}{% endif %}{% if warehouse.pin %} - {{ warehouse.pin }}{% endif %}
+    {% endif %}
+{% endmacro %}
+
+{% set ewaybill_no = doc.get("ewaybill") %}
+{% set ewaybill_log = frappe.db.get_value("e-Waybill Log", ewaybill_no, ["data"], as_dict=True) if ewaybill_no else None %}
+{% set ewaybill_data = json.loads(ewaybill_log.data) if ewaybill_log and ewaybill_log.data else {} %}
+{% set company_currency = frappe.db.get_value("Company", doc.company, "default_currency") %}
+{% set totals = namespace(qty=0, amount=0, cgst=0, sgst=0, igst=0) %}
+
+<div class="delivery-challan">
+    {% if letter_head %}
+        <div class="stock-transfer-letter-head">{{ letter_head }}</div>
+    {% endif %}
+
+    <table class="main-table">
+        <tr class="title-row">
+            <td colspan="10">Delivery Challan</td>
+        </tr>
+
+        <tr>
+            <td colspan="5">
+                <span class="field-label">DC No:</span> {{ doc.name }}<br>
+                <span class="field-label">Date:</span> {{ doc.get_formatted("posting_date") }}<br>
+                <span class="field-label">Purpose:</span> Inter Warehouse Stock Transfer
+            </td>
+            <td colspan="5">
+                <span class="field-label">Transporter:</span> {{ doc.get("transporter_name") or doc.get("transporter") or ewaybill_data.get("transporterName") or "" }}<br>
+                <span class="field-label">Vehicle No:</span> {{ doc.get("vehicle_no") or ewaybill_data.get("vehicleNo") or "" }}<br>
+                <span class="field-label">LR No:</span> {{ doc.get("lr_no") or ewaybill_data.get("transDocNo") or "" }}<br>
+                <span class="field-label">E-Waybill No:</span> {{ ewaybill_no or "" }}
+            </td>
+        </tr>
+
+        <tr class="section-row">
+            <td colspan="5">Source Warehouse</td>
+            <td colspan="5">Target Warehouse</td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                {% if doc.get("ship_from_address") %}
+                    {{ address_from_address(doc.get("ship_from_address"), doc.get("from_warehouse")) }}
+                {% else %}
+                    {{ address_from_warehouse(doc.get("from_warehouse")) }}
+                {% endif %}
+            </td>
+            <td colspan="5">
+                {% if doc.get("ship_to_address") %}
+                    {{ address_from_address(doc.get("ship_to_address"), doc.get("to_warehouse")) }}
+                {% else %}
+                    {{ address_from_warehouse(doc.get("to_warehouse")) }}
+                {% endif %}
+            </td>
+        </tr>
+
+        <tr class="section-row">
+            <td colspan="10">Item Details</td>
+        </tr>
+       <tr>
+    <th style="width:3%;" class="center">#</th>
+    <th style="width:15%;">Item Name</th>
+    <th style="width:6%;" class="center">GST %</th>
+    <th style="width:7%;" class="center">Qty</th>
+    <th style="width:6%;" class="center">UOM</th>
+    <th style="width:12%;" class="right">Rate</th>
+    <th style="width:13%;" class="right">Amount</th>
+    <th style="width:12%;" class="right">CGST</th>
+    <th style="width:12%;" class="right">SGST</th>
+    <th style="width:12%;" class="right">IGST</th>
+</tr>
+        {% for item in doc.items %}
+            {% set sales_rate = (item.valuation_rate or 0) %}
+            {% set amount = (item.qty or 0) * sales_rate %}
+            {% set gst_rate = (item.get("igst_rate") or 0) + (item.get("cgst_rate") or 0) + (item.get("sgst_rate") or 0) %}
+            {% set cgst_amount = item.get("cgst_amount") or 0 %}
+            {% set sgst_amount = item.get("sgst_amount") or 0 %}
+            {% set igst_amount = item.get("igst_amount") or 0 %}
+            {% set totals.qty = totals.qty + (item.qty or 0) %}
+            {% set totals.amount = totals.amount + amount %}
+            {% set totals.cgst = totals.cgst + cgst_amount %}
+            {% set totals.sgst = totals.sgst + sgst_amount %}
+            {% set totals.igst = totals.igst + igst_amount %}
+            <tr>
+                <td class="center">{{ loop.index }}</td>
+                <td class="item-name-cell">
+    <b>{{ item.item_name or item.item_code }}</b>
+
+   
+</td>
+                <td class="right">{{ "{:g}".format(gst_rate) }}%</td>
+                <td class="right">{{ item.qty }}</td>
+                <td>{{ item.uom or item.stock_uom or "" }}</td>
+                <td class="right">{{ frappe.utils.fmt_money(sales_rate, currency=company_currency) }}</td>
+<td class="right amount-cell">
+    {{ frappe.utils.fmt_money(amount, currency=company_currency) }}
+</td>                <td class="right">{{ frappe.utils.fmt_money(cgst_amount, currency=company_currency) }}</td>
+                <td class="right">{{ frappe.utils.fmt_money(sgst_amount, currency=company_currency) }}</td>
+                <td class="right">{{ frappe.utils.fmt_money(igst_amount, currency=company_currency) }}</td>
+            </tr>
+        {% endfor %}
+
+        <tr>
+            <td colspan="7" class="right total-label">Taxable Amount</td>
+            <td colspan="3" class="right">{{ frappe.utils.fmt_money(totals.amount, currency=company_currency) }}</td>
+        </tr>
+        {% for tax in doc.get("taxes") %}
+            {% if tax.tax_amount %}
+            <tr>
+                <td colspan="7" class="right">{{ tax.description or tax.account_head }}</td>
+                <td colspan="3" class="right">{{ frappe.utils.fmt_money(tax.tax_amount, currency=company_currency) }}</td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+        <tr>
+            <td colspan="7" class="right total-label">Tax Total</td>
+            <td colspan="3" class="right"><b>{{ frappe.utils.fmt_money(doc.get("total_taxes") or (totals.cgst + totals.sgst + totals.igst), currency=company_currency) }}</b></td>
+        </tr>
+        <tr class="grand-total">
+            <td colspan="7" class="right">Grand Total</td>
+            <td colspan="3" class="right">
+                {{ frappe.utils.fmt_money(doc.get("base_grand_total") or (totals.amount + (doc.get("total_taxes") or totals.cgst + totals.sgst + totals.igst)), currency=company_currency) }}
+            </td>
+        </tr>
+
+        <tr class="section-row">
+            <td colspan="10">Declaration</td>
+        </tr>
+        <tr>
+            <td colspan="10">
+                Goods are transferred from one warehouse to another warehouse of the same company.
+                No sale is involved in this transaction.
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="3" class="signature-cell">Prepared By</td>
+            <td colspan="4" class="signature-cell">Transporter Signature</td>
+            <td colspan="3" class="signature-cell">Authorized Signatory</td>
+        </tr>
+    </table>
+</div>

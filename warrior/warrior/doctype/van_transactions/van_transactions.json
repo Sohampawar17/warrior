@@ -1,0 +1,202 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-03-18 09:44:30.697568",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_0hwi",
+  "transaction_mode",
+  "transaction_status",
+  "customer",
+  "customer_mobile_no",
+  "customer_name",
+  "customer_group",
+  "sales_order",
+  "remark",
+  "column_break_kjig",
+  "naming_series",
+  "entry_type",
+  "transaction_amount",
+  "created_at",
+  "account_paid_to",
+  "created_by",
+  "section_break_pujo",
+  "van_no",
+  "van_warrior",
+  "column_break_vdpo",
+  "van_payment_mode",
+  "amended_from",
+  "payment_entry"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_0hwi",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Van Transactions",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "transaction_mode",
+   "fieldtype": "Data",
+   "label": "transaction Mode"
+  },
+  {
+   "fieldname": "transaction_status",
+   "fieldtype": "Select",
+   "label": "Transaction Status",
+   "options": "Pending\nApproved\nRejected"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer_group",
+   "fieldtype": "Link",
+   "label": "Customer Group",
+   "options": "Customer Group"
+  },
+  {
+   "fieldname": "transaction_amount",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Transaction Amount",
+   "reqd": 1
+  },
+  {
+   "fieldname": "created_at",
+   "fieldtype": "Datetime",
+   "label": "Created At"
+  },
+  {
+   "fieldname": "remark",
+   "fieldtype": "Small Text",
+   "label": "Remark"
+  },
+  {
+   "fieldname": "entry_type",
+   "fieldtype": "Data",
+   "label": "Entry type"
+  },
+  {
+   "fieldname": "van_warrior",
+   "fieldtype": "Data",
+   "label": "Van Warrior"
+  },
+  {
+   "fieldname": "van_payment_mode",
+   "fieldtype": "Data",
+   "label": "Van Payment Mode"
+  },
+  {
+   "fieldname": "van_no",
+   "fieldtype": "Data",
+   "label": "Van No"
+  },
+  {
+   "default": "VAN-.",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "VAN-."
+  },
+  {
+   "fieldname": "section_break_pujo",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_kjig",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_vdpo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Sales order",
+   "options": "Sales Order",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "sales_order.contact_mobile",
+   "fieldname": "customer_mobile_no",
+   "fieldtype": "Data",
+   "label": "Customer Mobile No"
+  },
+  {
+   "fetch_from": "customer.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name"
+  },
+  {
+   "fieldname": "account_paid_to",
+   "fieldtype": "Link",
+   "label": "Account Paid To",
+   "link_filters": "[[\"Account\",\"disabled\",\"=\",0],[\"Account\",\"is_group\",\"=\",0]]",
+   "options": "Account"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By",
+   "link_filters": "[[\"User\",\"enabled\",\"=\",1],[\"User\",\"role\",\"=\",\"Employee\"]]",
+   "options": "User"
+  },
+  {
+   "fieldname": "payment_entry",
+   "fieldtype": "Link",
+   "label": "payment_entry",
+   "options": "Payment Entry"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-06-03 23:58:24.462147",
+ "modified_by": "Administrator",
+ "module": "Warrior",
+ "name": "Van Transactions",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,266 @@
+<style>
+  :root{
+    --b:#e5e7eb;
+    --b2:#d8dde6;
+    --txt:#111827;
+    --mut:#6b7280;
+    --pri:#1f4e79;
+    --bg:#f7f9fc;
+    --bg2:#f3f6fb;
+    --hi:#fff7ed;
+    --hiTxt:#9a3412;
+  }
+
+  body { font-family: Arial, sans-serif; font-size: 11px; color: var(--txt); }
+
+  .header{
+    border-bottom: 2px solid var(--b2);
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+  }
+
+  .company-name{
+    font-size: 18px;
+    font-weight: 800;
+  }
+
+  .company-details{
+    font-size: 10px;
+    color: var(--mut);
+  }
+
+  .receipt-title{
+    text-align:center;
+    font-size: 16px;
+    font-weight: 900;
+    margin: 12px 0;
+    letter-spacing: .5px;
+  }
+
+  .meta-table, .amt-table{
+    width:100%;
+    border-collapse: collapse;
+  }
+
+  .meta-table td{
+    border:1px solid var(--b);
+    padding:6px 8px;
+  }
+
+  .k{ font-weight:800; background:#f8fafc; width:25%; }
+  .v{ font-weight:600; width:25%; }
+
+  .section{
+    margin-top:12px;
+    border:1px solid var(--b);
+  }
+
+  .section-h{
+    background:var(--bg2);
+    padding:8px 10px;
+    font-weight:900;
+    border-bottom:1px solid var(--b);
+  }
+
+  .section-b{ padding:10px; }
+.amt-table th, .amt-table td{
+  border:1px solid var(--b);
+  padding:8px;
+}
+
+.amt-table th:first-child{
+  background:#f8fafc;
+  text-align:left;
+  font-weight:900;
+}
+
+.amt-table th:last-child{
+  background:#f8fafc;
+  text-align:right;
+  font-weight:900;
+}
+
+.amt-table td:first-child{
+  text-align:left;
+  font-weight:700;
+}
+
+.amt-table td:last-child{
+  text-align:right;
+  font-weight:800;
+}
+
+  .highlight td{
+    background:var(--hi);
+    color:var(--hiTxt);
+    font-weight:900 !important;
+  }
+
+  .note{
+    border:1px dashed var(--b);
+    padding:10px;
+    min-height:40px;
+  }
+
+  .sign{
+    width:100%;
+    margin-top:30px;
+  }
+
+  .sign td{
+    width:50%;
+  }
+
+  .line{
+    margin-top:30px;
+    border-top:1px solid var(--b2);
+    width:85%;
+  }
+
+  .footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top:1px solid var(--b2);
+    padding-top:6px;
+    font-size:9px;
+    color:var(--mut);
+    text-align:center;
+  }
+
+  @media print {
+    .footer {
+      position: fixed;
+      bottom: 0;
+    }
+  }
+</style>
+
+{% set approved_name = doc.approved_by_name or (frappe.db.get_value("User", doc.approved_by, "full_name") if doc.approved_by else "") %}
+{% set paid_name = doc.paid_by_name or (frappe.db.get_value("User", doc.paid_by, "full_name") if doc.paid_by else "") %}
+
+<!-- HEADER -->
+<div class="header">
+  <table style="width:100%;">
+    <tr>
+      <td style="width:70%;">
+        <div class="company-name">{{ doc.company }}</div>
+        <div class="company-details">
+          {{ frappe.db.get_value("Company", doc.company, "company_name") or "" }}
+        </div>
+      </td>
+      <td style="text-align:right;">
+        <b>Refund ID:</b> {{ doc.name }}<br>
+        <b>Date:</b> {{ frappe.utils.formatdate(doc.creation) }}
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="receipt-title">
+  REFUND RECEIPT
+</div>
+
+<!-- ORDER DETAILS -->
+<table class="meta-table">
+  <tr>
+    <td class="k">Order Type</td>
+    <td class="v">{{ doc.order_doctype }}</td>
+    <td class="k">Order ID</td>
+    <td class="v">{{ doc.order_id }}</td>
+  </tr>
+  <tr>
+    <td class="k">Customer Name</td>
+    <td class="v">{{ doc.customer_name }}</td>
+    <td class="k">Refund Mode</td>
+    <td class="v">{{ doc.refund_mode }}</td>
+  </tr>
+  <tr>
+    <td class="k">Approved By</td>
+    <td class="v">{{ approved_name }}</td>
+    <td class="k">Paid By</td>
+    <td class="v">{{ paid_name }}</td>
+  </tr>
+</table>
+
+<!-- AMOUNT SECTION -->
+<div class="section">
+  <div class="section-h">Refund Summary</div>
+  <div class="section-b">
+    <table class="amt-table">
+      <tr>
+        <th>Particular</th>
+        <th>Amount (INR)</th>
+      </tr>
+      <tr>
+        <td>Order Total</td>
+        <td>{{ frappe.utils.fmt_money(doc.grand_total or 0, currency="INR") }}</td>
+      </tr>
+      <tr>
+        <td>Paid Amount</td>
+        <td>{{ frappe.utils.fmt_money(doc.paid_amount or 0, currency="INR") }}</td>
+      </tr>
+      <tr>
+        <td>Refundable Amount</td>
+        <td>{{ frappe.utils.fmt_money(doc.refundable_amount or 0, currency="INR") }}</td>
+      </tr>
+      <tr class="highlight">
+        <td>Refund Amount</td>
+        <td>{{ frappe.utils.fmt_money(doc.requested_refund_amount or 0, currency="INR") }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- BANK DETAILS -->
+{% if doc.refund_mode == "Bank" %}
+<div class="section">
+  <div class="section-h">Bank Details</div>
+  <div class="section-b">
+    <table class="meta-table">
+      <tr>
+        <td class="k">Account Name</td>
+        <td class="v">{{ doc.account_name }}</td>
+        <td class="k">Account Number</td>
+        <td class="v">{{ doc.account_number }}</td>
+      </tr>
+      <tr>
+        <td class="k">Bank Name</td>
+        <td class="v">{{ doc.bank_name }}</td>
+        <td class="k">IFSC</td>
+        <td class="v">{{ doc.ifsc }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+{% endif %}
+
+<!-- REASON -->
+<div class="section">
+  <div class="section-h">Reason</div>
+  <div class="section-b">
+    <div class="note">{{ doc.refund_reason or "-" }}</div>
+  </div>
+</div>
+
+<!-- SIGNATURE -->
+<table class="sign">
+  <tr>
+    <td>
+      <b>Prepared By</b>
+      <div class="line"></div>
+      {{ paid_name }}
+    </td>
+    <td style="text-align:right;">
+      <b>Approved By</b>
+      <div class="line" style="margin-left:auto;"></div>
+      {{ approved_name }}
+    </td>
+  </tr>
+</table>
+
+<!-- FOOTER -->
+<div class="footer">
+  System Generated Document • {{ doc.company }} • Printed on {{ frappe.utils.now_datetime() }}
+</div>

@@ -1,0 +1,52 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-06-20 12:53:58.140806",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "lead_stage",
+  "lead_count",
+  "select"
+ ],
+ "fields": [
+  {
+   "fieldname": "lead_stage",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Lead Stage",
+   "options": "Lead Stages",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lead_count",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Lead Count",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "select",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Select"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-06-20 12:53:58.140806",
+ "modified_by": "Administrator",
+ "module": "Warrior",
+ "name": "Lead Reassigned Stage items",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

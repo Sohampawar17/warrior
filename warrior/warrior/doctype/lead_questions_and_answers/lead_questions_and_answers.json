@@ -1,0 +1,41 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-02-28 18:34:51.748355",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "questions",
+  "answers"
+ ],
+ "fields": [
+  {
+   "fieldname": "questions",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "questions"
+  },
+  {
+   "fieldname": "answers",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "answers"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-05-13 16:11:32.212494",
+ "modified_by": "Administrator",
+ "module": "Warrior",
+ "name": "Lead Questions and Answers",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

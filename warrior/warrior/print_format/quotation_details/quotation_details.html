@@ -1,0 +1,245 @@
+
+<style>
+
+@page {
+    size: A4;
+    margin: 12mm;
+}
+
+body {
+    font-family: Arial;
+    font-size: 12px;
+    color: #222;
+}
+
+/* HEADER */
+.header {
+    text-align: center;
+    font-size: 11px;
+    color: #666;
+}
+
+/* TITLE */
+.title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #1f6b3b;
+    margin: 10px 0;
+}
+
+/* BOX TABLE (FOR FROM / TO) */
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+.info-table td {
+    width: 50%;
+    border: 1px solid #ddd;
+    padding: 8px;
+    vertical-align: top;
+}
+
+/* LABEL */
+.label {
+    font-weight: bold;
+    color: #1f6b3b;
+    margin-bottom: 4px;
+    display: block;
+}
+
+/* ITEM TABLE */
+.item-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.item-table th {
+    background: #1f6b3b;
+    color: white;
+    font-size: 11px;
+    padding: 6px;
+    border: 1px solid #ddd;
+}
+
+.item-table td {
+    border: 1px solid #ddd;
+    padding: 6px;
+    font-size: 11px;
+}
+
+.right { text-align: right; }
+.center { text-align: center; }
+
+/* TOTAL TABLE */
+.total-table {
+    width: 320px;
+    margin-left: auto;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+.total-table td {
+    border: 1px solid #ddd;
+    padding: 6px;
+}
+
+/* TERMS */
+.terms {
+    margin-top: 10px;
+    border: 1px dashed #aaa;
+    padding: 8px;
+    font-size: 11px;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    font-size: 10px;
+    color: #666;
+    margin-top: 10px;
+}
+
+</style>
+
+<!-- HEADER -->
+<div class="header">
+    {% if letter_head %}
+        {{ letter_head }}
+    {% else %}
+        {{ doc.company }}
+    {% endif %}
+</div>
+
+<div class="title">QUOTATION</div>
+<!-- FROM / TO (PERFECT ALIGNMENT TABLE) -->
+<table class="info-table">
+    <tr>
+
+{% set company_addr = frappe.db.get_value("Address", doc.company_address, ["*"], as_dict=True) %}
+{% set shipping_addr = frappe.db.get_value("Address", doc.shipping_address_name, ["*"], as_dict=True) %}
+
+        <!-- FROM -->
+        <td>
+            <span class="label">From (Company)</span><br>
+            <b>{{ doc.company }}</b><br>
+            GSTIN: {{ doc.company_gstin }}<br>
+
+            {% if company_addr %}
+                {{ company_addr.address_line1 or "" }}<br>
+                {{ company_addr.address_line2 or "" }}<br>
+                  {# 🔥 Marketplace replaces city #}
+                {% set marketplace_name = frappe.db.get_value("Marketplace", company_addr.city, "marketplace_name") if shipping_addr.city else "" %}
+
+                {% if marketplace_name %}
+                    {{ marketplace_name }}<br>
+                {% endif %}
+                {{ company_addr.state or "" }}{% if company_addr.pincode %}, {{ company_addr.pincode }}{% endif %}
+            {% endif %}
+        </td>
+
+        <!-- TO -->
+        <td>
+            <span class="label">To (Customer)</span><br>
+            <b>{{ doc.customer_name }}</b><br>
+            Mobile: {{ doc.contact_mobile or "" }}<br>
+
+            {% if shipping_addr %}
+
+                {{ shipping_addr.address_line1 or "" }}<br>
+                {{ shipping_addr.address_line2 or "" }}<br>
+
+                {# 🔥 Marketplace replaces city #}
+                {% set marketplace_name = frappe.db.get_value("Marketplace", shipping_addr.city, "marketplace_name") if shipping_addr.city else "" %}
+
+                {% if marketplace_name %}
+                    {{ marketplace_name }}<br>
+                {% endif %}
+
+                {{ shipping_addr.state or "" }}{% if shipping_addr.pincode %}, {{ shipping_addr.pincode }}{% endif %}
+
+            {% endif %}
+        </td>
+
+    </tr>
+</table>
+<!-- QUOTATION INFO -->
+<table class="info-table">
+    <tr>
+        <td>
+            <b>Quotation No:</b> {{ doc.name }}<br>
+            <b>Date:</b> {{ doc.transaction_date }}<br>
+            <b>Valid Till:</b> {{ doc.valid_till }}
+        </td>
+
+        <td>
+            <b>GST Category:</b> {{ doc.gst_category }}<br>
+            <b>Place of Supply:</b> {{ doc.place_of_supply }}
+        </td>
+    </tr>
+</table>
+
+<!-- ITEM TABLE -->
+<table class="item-table">
+    <thead>
+        <tr>
+            <th style="width:5%" class="center">#</th>
+            <th>Item</th>
+            <th style="width:12%">HSN</th>
+            <th style="width:10%" class="right">Qty</th>
+            <th style="width:12%" class="right">Rate</th>
+            <th style="width:12%" class="right">Disc%</th>
+            <th style="width:15%" class="right">Amount</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for item in doc.items %}
+        <tr>
+            <td class="center">{{ loop.index }}</td>
+            <td>
+                <b>{{ item.item_name }}</b><br>
+                <small>{{ item.description }}</small>
+            </td>
+            <td>{{ item.gst_hsn_code }}</td>
+            <td class="right">{{ item.qty }}</td>
+            <td class="right">{{ item.rate }}</td>
+            <td class="right">{{ item.discount_percentage or 0 }}</td>
+            <td class="right">{{ item.amount }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- TOTALS -->
+<table class="total-table">
+    <tr>
+        <td><b>Net Total</b></td>
+        <td class="right">{{ doc.net_total }}</td>
+    </tr>
+    <tr>
+        <td><b>Tax</b></td>
+        <td class="right">{{ doc.total_taxes_and_charges }}</td>
+    </tr>
+    <tr>
+        <td><b>Grand Total</b></td>
+        <td class="right"><b>{{ doc.grand_total }}</b></td>
+    </tr>
+    <tr>
+        <td><b>In Words</b></td>
+        <td class="right">{{ doc.in_words }}</td>
+    </tr>
+</table>
+
+<!-- TERMS -->
+<div class="terms">
+    <b>Terms & Conditions</b><br>
+    {{ doc.terms or "No terms defined" }}
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    {{ frappe.utils.get_url() }} | System Generated Quotation
+</div>

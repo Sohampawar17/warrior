@@ -1,0 +1,82 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"QE-uJnd7ed\",\"type\":\"header\",\"data\":{\"text\":\"<span style=\\\"font-size: 18px; letter-spacing: 0.18px;\\\"><b>Dealer</b></span>\",\"col\":12}},{\"id\":\"S2htN0p4FS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending Brand Access\",\"col\":4}},{\"id\":\"oqVsetCFu5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Approved Brand Access\",\"col\":4}},{\"id\":\"QLYN5hnuDn\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Rejected Brand Access\",\"col\":4}},{\"id\":\"wLxAbl1JGs\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"mo0j-1cHzj\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Dealer Registration Process</b></span>\",\"col\":12}},{\"id\":\"kOeSoT0yDj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending Dealer Registration\",\"col\":4}},{\"id\":\"AoHo0w3k3r\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Approved Dealer Registration\",\"col\":4}},{\"id\":\"Yrk7AHhWXK\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Rejected  Dealer Registration\",\"col\":4}}]",
+ "creation": "2026-04-09 15:58:22.427623",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "assets",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Dealer",
+ "links": [],
+ "modified": "2026-06-02 15:55:56.520278",
+ "modified_by": "Administrator",
+ "module": "Warrior",
+ "name": "Dealer",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "Shoption",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Dealer Manager"
+  }
+ ],
+ "sequence_id": 2.0,
+ "shortcuts": [
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Approved Brand Access",
+   "link_to": "Brand Access",
+   "stats_filter": "[[\"Brand Access\",\"docstatus\",\"=\",\"1\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Pending Brand Access",
+   "link_to": "Brand Access",
+   "stats_filter": "[[\"Brand Access\",\"docstatus\",\"=\",\"0\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Pending Dealer Registration",
+   "link_to": "Delear Registration",
+   "stats_filter": "[[\"Delear Registration\",\"docstatus\",\"=\",\"0\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "doc_view": "List",
+   "label": "Rejected  Dealer Registration",
+   "link_to": "Delear Registration",
+   "stats_filter": "[[\"Delear Registration\",\"docstatus\",\"=\",\"2\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "doc_view": "List",
+   "label": "Rejected Brand Access",
+   "link_to": "Brand Access",
+   "stats_filter": "[[\"Brand Access\",\"docstatus\",\"=\",\"2\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Approved Dealer Registration",
+   "link_to": "Delear Registration",
+   "stats_filter": "[[\"Delear Registration\",\"docstatus\",\"=\",\"1\",false]]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Dealer"
+}

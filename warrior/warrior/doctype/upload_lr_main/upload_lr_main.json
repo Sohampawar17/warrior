@@ -1,0 +1,219 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-01-28 13:51:49.822788",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_jdf6",
+  "no_of_boxes",
+  "weight_in_grams",
+  "amended_from",
+  "total_charges",
+  "column_break_rakf",
+  "lr_copy",
+  "customer_delivery_date",
+  "remark",
+  "section_break_unrp",
+  "customer",
+  "customer_name",
+  "customer_address",
+  "customer_mobile",
+  "section_break_jwhl",
+  "transporter",
+  "transporter_name",
+  "tracking_id",
+  "column_break_qpup",
+  "payment_status",
+  "estimeted_arrival_time",
+  "section_break_fujt",
+  "sales_invoice",
+  "naming_series",
+  "total_qty",
+  "column_break_hytj",
+  "sales_order"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_jdf6",
+   "fieldtype": "Section Break",
+   "label": "Package Details"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Upload LR Main",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "no_of_boxes",
+   "fieldtype": "Int",
+   "label": "No of Boxes"
+  },
+  {
+   "fieldname": "weight_in_grams",
+   "fieldtype": "Float",
+   "label": "Weight (In Grams"
+  },
+  {
+   "fieldname": "column_break_rakf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_unrp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name"
+  },
+  {
+   "fieldname": "customer_address",
+   "fieldtype": "Small Text",
+   "label": "Customer Address"
+  },
+  {
+   "fieldname": "customer_mobile",
+   "fieldtype": "Data",
+   "label": "Customer Mobile"
+  },
+  {
+   "fieldname": "section_break_jwhl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "transporter",
+   "fieldtype": "Link",
+   "label": "Transporter",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "transporter_name",
+   "fieldtype": "Data",
+   "label": "Transporter Name"
+  },
+  {
+   "fieldname": "section_break_fujt",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "LR-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "naming_series",
+   "options": "LR-.YYYY.-"
+  },
+  {
+   "default": "Paid",
+   "fieldname": "payment_status",
+   "fieldtype": "Select",
+   "label": "Payment Status",
+   "options": "Paid\nTo Pay"
+  },
+  {
+   "fieldname": "sales_invoice",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Sales Invoice"
+  },
+  {
+   "fieldname": "tracking_id",
+   "fieldtype": "Data",
+   "label": "Tracking Id"
+  },
+  {
+   "fieldname": "column_break_qpup",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "estimeted_arrival_time",
+   "fieldtype": "Datetime",
+   "label": "Estimeted Arrival Time"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "lr_copy",
+   "fieldtype": "Attach",
+   "label": "LR Copy",
+   "make_attachment_public": 1
+  },
+  {
+   "fieldname": "total_qty",
+   "fieldtype": "Float",
+   "label": "Total_qty"
+  },
+  {
+   "fieldname": "column_break_hytj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Sales Order",
+   "options": "Sales Order"
+  },
+  {
+   "fieldname": "customer_delivery_date",
+   "fieldtype": "Date",
+   "label": "Customer Delivery Date"
+  },
+  {
+   "fieldname": "remark",
+   "fieldtype": "Small Text",
+   "label": "Remark "
+  },
+  {
+   "fieldname": "total_charges",
+   "fieldtype": "Float",
+   "label": "Total Charges"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "make_attachments_public": 1,
+ "modified": "2026-06-11 09:45:25.927650",
+ "modified_by": "Administrator",
+ "module": "Warrior",
+ "name": "Upload LR Main",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,41 @@
+<div style="
+width:350px;
+height:230px;
+border:2px solid black;
+padding:10px;
+font-family: Arial;
+text-align:center;
+">
+
+<div style="font-size:20px;font-weight:bold;">
+DISPATCH ID
+</div>
+
+<div style="font-size:26px;font-weight:bold;margin-bottom:5px;">
+{{ doc.dispatch_id }}
+</div>
+
+<hr>
+
+<div style="font-size:32px;font-weight:bold;margin-top:5px;">
+BOX {{ doc.box_number }} / {{ doc.no_of_boxes }}
+</div>
+
+<div style="margin-top:8px;font-size:16px;">
+{{ doc.customer_name }}
+</div>
+
+<div style="font-size:14px;margin-bottom:10px;">
+{{ doc.marketplace }} - {{ doc.tehsil }}
+</div>
+
+<img 
+src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ doc.qr_code_value }}"
+style="margin-top:5px;"
+>
+
+<div style="font-size:12px;margin-top:5px;">
+{{ doc.qr_code_value }}
+</div>
+
+</div>

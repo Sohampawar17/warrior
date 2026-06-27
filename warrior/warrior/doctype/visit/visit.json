@@ -1,0 +1,223 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-02-11 10:38:43.974443",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "customer_name",
+  "visit_date",
+  "visit_time",
+  "mobile_number",
+  "alternate_mobile_number",
+  "marketplace",
+  "column_break_smap",
+  "naming_series",
+  "order_id",
+  "next_order_date",
+  "section_break_oxrs",
+  "brands_available_in_shop",
+  "most_selling_product_and_brand",
+  "opinion_on_credit_system",
+  "thoughts_on_gbru_product_and_quality",
+  "additional_remarks",
+  "section_break_vefj",
+  "loc_name",
+  "loc_street",
+  "loc_country_code",
+  "loc_country",
+  "loc_postal_code",
+  "loc_administrative_area",
+  "loc_sub_administrative_area",
+  "loc_locality",
+  "loc_sub_locality",
+  "lattitude",
+  "longitude"
+ ],
+ "fields": [
+  {
+   "fieldname": "order_id",
+   "fieldtype": "Link",
+   "label": "Order Id",
+   "options": "Sales Order"
+  },
+  {
+   "fieldname": "next_order_date",
+   "fieldtype": "Date",
+   "label": "Next Order Date"
+  },
+  {
+   "fieldname": "brands_available_in_shop",
+   "fieldtype": "Data",
+   "label": "Brands Available In Shop"
+  },
+  {
+   "fieldname": "most_selling_product_and_brand",
+   "fieldtype": "Data",
+   "label": "Most Selling Product and Brand"
+  },
+  {
+   "fieldname": "opinion_on_credit_system",
+   "fieldtype": "Select",
+   "label": "Opinion on Credit System",
+   "options": "Interested\nNot Interested"
+  },
+  {
+   "fieldname": "thoughts_on_gbru_product_and_quality",
+   "fieldtype": "Small Text",
+   "label": "Thoughts on GBRU Product and Quality"
+  },
+  {
+   "fieldname": "additional_remarks",
+   "fieldtype": "Small Text",
+   "label": "Additional Remarks"
+  },
+  {
+   "fetch_from": "customer.mobile_no",
+   "fetch_if_empty": 1,
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number"
+  },
+  {
+   "fieldname": "alternate_mobile_number",
+   "fieldtype": "Data",
+   "label": "Alternate Mobile Number"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "default": "Today",
+   "fieldname": "visit_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Visit Date"
+  },
+  {
+   "fetch_from": "customer.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customer Name"
+  },
+  {
+   "fieldname": "column_break_smap",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "VISIT-."
+  },
+  {
+   "fieldname": "section_break_oxrs",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "visit_time",
+   "fieldtype": "Time",
+   "label": "Visit Time"
+  },
+  {
+   "fieldname": "marketplace",
+   "fieldtype": "Link",
+   "label": "Marketplace",
+   "options": "Marketplace"
+  },
+  {
+   "fieldname": "section_break_vefj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "loc_name",
+   "fieldtype": "Data",
+   "label": "loc_name"
+  },
+  {
+   "fieldname": "loc_street",
+   "fieldtype": "Data",
+   "label": "loc_street"
+  },
+  {
+   "fieldname": "loc_country_code",
+   "fieldtype": "Data",
+   "label": "loc_country_code"
+  },
+  {
+   "fieldname": "loc_country",
+   "fieldtype": "Data",
+   "label": "loc_country"
+  },
+  {
+   "fieldname": "loc_postal_code",
+   "fieldtype": "Data",
+   "label": "loc_postal_code"
+  },
+  {
+   "fieldname": "loc_administrative_area",
+   "fieldtype": "Data",
+   "label": "loc_administrative_area"
+  },
+  {
+   "fieldname": "loc_sub_administrative_area",
+   "fieldtype": "Data",
+   "label": "loc_sub_administrative_area"
+  },
+  {
+   "fieldname": "loc_locality",
+   "fieldtype": "Data",
+   "label": "loc_locality"
+  },
+  {
+   "fieldname": "loc_sub_locality",
+   "fieldtype": "Data",
+   "label": "loc_sub_locality"
+  },
+  {
+   "fieldname": "lattitude",
+   "fieldtype": "Data",
+   "label": "lattitude"
+  },
+  {
+   "fieldname": "longitude",
+   "fieldtype": "Data",
+   "label": "longitude"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-22 23:45:30.971880",
+ "modified_by": "Administrator",
+ "module": "Warrior",
+ "name": "Visit",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

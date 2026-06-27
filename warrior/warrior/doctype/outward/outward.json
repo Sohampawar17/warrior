@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-07 17:36:34.255315",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "material_handover",
+  "no_of_boxes",
+  "photo",
+  "outward_invoices",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "material_handover",
+   "fieldtype": "Data",
+   "label": "Material Handover"
+  },
+  {
+   "fieldname": "no_of_boxes",
+   "fieldtype": "Int",
+   "label": "No. Of Boxes"
+  },
+  {
+   "fieldname": "photo",
+   "fieldtype": "Attach",
+   "label": "Photo"
+  },
+  {
+   "fieldname": "outward_invoices",
+   "fieldtype": "Table",
+   "label": "Outward Invoices",
+   "options": "Outward Invoices"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Outward",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-04-13 02:07:06.014236",
+ "modified_by": "Administrator",
+ "module": "Warrior",
+ "name": "Outward",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

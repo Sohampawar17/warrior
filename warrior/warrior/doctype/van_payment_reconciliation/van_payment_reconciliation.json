@@ -1,0 +1,201 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-06-05 08:44:44.577088",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_uapg",
+  "received_bank_account",
+  "paid_amount",
+  "column_break_esmf",
+  "posting_date",
+  "utr_no",
+  "attachment",
+  "section_break_sfyo",
+  "received_amount",
+  "company_account",
+  "payment_proof",
+  "column_break_vyvd",
+  "company_bank_account",
+  "bank_transaction_id",
+  "section_break_fpvo",
+  "remarks",
+  "section_break_ilxn",
+  "reference_warrior",
+  "payment_entry",
+  "column_break_welt",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_uapg",
+   "fieldtype": "Section Break",
+   "label": "Van Collections Details"
+  },
+  {
+   "fieldname": "received_bank_account",
+   "fieldtype": "Link",
+   "label": "Received Bank Account",
+   "options": "Account",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "received_amount",
+   "fieldtype": "Currency",
+   "label": "Received Amount",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "column_break_esmf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "utr_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "UTR No",
+   "reqd": 1
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "Attachment",
+   "reqd": 1
+  },
+  {
+   "collapsible": 1,
+   "collapsible_depends_on": "eval:!doc.__islocal && doc.workflow_state!=\"Approved By Manager\"",
+   "fieldname": "section_break_sfyo",
+   "fieldtype": "Section Break",
+   "label": "Bank Details For Accounts"
+  },
+  {
+   "default": "HDFC-6300 - SPL",
+   "fieldname": "company_account",
+   "fieldtype": "Link",
+   "label": "Company Account",
+   "link_filters": "[[\"Account\",\"disabled\",\"=\",0],[\"Account\",\"is_group\",\"=\",0],[\"Account\",\"account_type\",\"=\",\"Bank\"]]",
+   "options": "Account"
+  },
+  {
+   "fieldname": "payment_proof",
+   "fieldtype": "Attach",
+   "label": "payment Proof"
+  },
+  {
+   "fieldname": "column_break_vyvd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Shoption Pvt Ltd - HDFC-6300",
+   "fieldname": "company_bank_account",
+   "fieldtype": "Link",
+   "label": "Company Bank Account",
+   "options": "Bank Account"
+  },
+  {
+   "fieldname": "bank_transaction_id",
+   "fieldtype": "Data",
+   "label": "Bank Transaction Id"
+  },
+  {
+   "fieldname": "section_break_fpvo",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "section_break_ilxn",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "reference_warrior",
+   "fieldtype": "Link",
+   "label": "Reference Warrior",
+   "options": "User"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "payment_entry",
+   "fieldtype": "Link",
+   "label": "payment_entry",
+   "options": "Payment Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_welt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Van Payment Reconciliation",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Van Payment Reconciliation",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "paid_amount",
+   "fieldtype": "Currency",
+   "label": "Paid Amount",
+   "non_negative": 1,
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-06-15 18:52:40.088763",
+ "modified_by": "Administrator",
+ "module": "Warrior",
+ "name": "Van Payment Reconciliation",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

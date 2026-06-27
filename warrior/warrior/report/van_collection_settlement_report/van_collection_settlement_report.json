@@ -1,0 +1,35 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2026-06-05 09:14:43.361434",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "json": "{}",
+ "letter_head": null,
+ "modified": "2026-06-18 16:51:27.072607",
+ "modified_by": "Administrator",
+ "module": "Warrior",
+ "name": "Van Collection Settlement Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Payment Entry",
+ "report_name": "Van Collection Settlement Report",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "In Transit Warehouse Manager"
+  },
+  {
+   "role": "Accounts User"
+  }
+ ],
+ "timeout": 0
+}

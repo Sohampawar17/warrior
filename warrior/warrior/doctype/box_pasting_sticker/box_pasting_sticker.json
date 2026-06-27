@@ -1,0 +1,129 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-07 17:24:16.743902",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "sales_invoice",
+  "customer",
+  "customer_name",
+  "marketplace",
+  "tehsil",
+  "no_of_boxes",
+  "invoice_amount",
+  "box_number",
+  "amended_from",
+  "envelope",
+  "dispatch_id",
+  "packing_ok",
+  "qr_code_value"
+ ],
+ "fields": [
+  {
+   "fieldname": "sales_invoice",
+   "fieldtype": "Data",
+   "label": "Sales Invoice"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "no_of_boxes",
+   "fieldtype": "Int",
+   "label": "No Of Boxes"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Box Pasting Sticker",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "customer.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name"
+  },
+  {
+   "fieldname": "marketplace",
+   "fieldtype": "Link",
+   "label": "Marketplace ",
+   "options": "Marketplace"
+  },
+  {
+   "fieldname": "tehsil",
+   "fieldtype": "Link",
+   "label": "Tehsil",
+   "options": "Tahshil"
+  },
+  {
+   "fieldname": "invoice_amount",
+   "fieldtype": "Float",
+   "label": "Invoice Amount"
+  },
+  {
+   "fieldname": "box_number",
+   "fieldtype": "Int",
+   "label": "Box Number"
+  },
+  {
+   "fieldname": "envelope",
+   "fieldtype": "Link",
+   "label": "Envelope",
+   "options": "Envelope"
+  },
+  {
+   "fetch_from": "envelope.dispatch_id",
+   "fieldname": "dispatch_id",
+   "fieldtype": "Data",
+   "label": "dispatch_id"
+  },
+  {
+   "fieldname": "packing_ok",
+   "fieldtype": "Link",
+   "label": "Packing Ok",
+   "options": "Packing OK Slip"
+  },
+  {
+   "fieldname": "qr_code_value",
+   "fieldtype": "Data",
+   "label": "qr_code_value"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-06-08 16:45:10.754402",
+ "modified_by": "Administrator",
+ "module": "Warrior",
+ "name": "Box Pasting Sticker",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

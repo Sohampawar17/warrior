@@ -1,0 +1,185 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-02-11 10:07:51.547209",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "call_status",
+  "posting_datetime",
+  "column_break_mhla",
+  "naming_series",
+  "call_type",
+  "call_sub_type",
+  "call_belongs_to",
+  "shop_and_contact_section",
+  "shop_name",
+  "mobile_number",
+  "column_break_wqvz",
+  "customer",
+  "call_insights_section",
+  "special_remark",
+  "call_next_date",
+  "brand_present_in_shop",
+  "opinion_about_credit",
+  "product_quality_and_rate",
+  "section_break_sqkc",
+  "call_duration",
+  "section_break_hxeo",
+  "call_recording"
+ ],
+ "fields": [
+  {
+   "fieldname": "call_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Call Status",
+   "options": "\nSUCCESS\nUNANSWERED\nSHOP CLOSED\nWRONG NUMBER\nIRRELEVANT\nDND",
+   "reqd": 1
+  },
+  {
+   "fieldname": "shop_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Shop Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Mobile Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "special_remark",
+   "fieldtype": "Small Text",
+   "label": "Special Remark"
+  },
+  {
+   "fieldname": "call_next_date",
+   "fieldtype": "Date",
+   "label": "Call Next Date"
+  },
+  {
+   "fieldname": "brand_present_in_shop",
+   "fieldtype": "Data",
+   "label": "Brand Present In Shop"
+  },
+  {
+   "fieldname": "opinion_about_credit",
+   "fieldtype": "Data",
+   "label": "Opinion About Credit"
+  },
+  {
+   "fieldname": "product_quality_and_rate",
+   "fieldtype": "Data",
+   "label": "Product Quality and Rate"
+  },
+  {
+   "fieldname": "call_duration",
+   "fieldtype": "Duration",
+   "hide_days": 1,
+   "in_list_view": 1,
+   "label": "Call Duration",
+   "reqd": 1
+  },
+  {
+   "fieldname": "call_recording",
+   "fieldtype": "Attach",
+   "label": "Call Recording"
+  },
+  {
+   "default": "CL-.",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "naming Series",
+   "options": "CL-."
+  },
+  {
+   "fieldname": "call_insights_section",
+   "fieldtype": "Section Break",
+   "label": "Call Insights"
+  },
+  {
+   "fieldname": "section_break_sqkc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_hxeo",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_mhla",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shop_and_contact_section",
+   "fieldtype": "Section Break",
+   "label": "Shop and Contact"
+  },
+  {
+   "default": "Now",
+   "fieldname": "posting_datetime",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Posting Datetime "
+  },
+  {
+   "fieldname": "column_break_wqvz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "call_type",
+   "fieldtype": "Data",
+   "label": "Call Type"
+  },
+  {
+   "fieldname": "call_sub_type",
+   "fieldtype": "Data",
+   "label": "Call Sub Type"
+  },
+  {
+   "fieldname": "call_belongs_to",
+   "fieldtype": "Select",
+   "label": "Call Belongs To",
+   "options": "Customer\nPersonal"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-20 19:52:50.527992",
+ "modified_by": "Administrator",
+ "module": "Warrior",
+ "name": "Call Detail Entry",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
